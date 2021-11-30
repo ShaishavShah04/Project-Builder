@@ -5,12 +5,10 @@ import mongoose from "mongoose";
 import morgan from "morgan";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import { PORT, DB_URL } from "./secret_stuff.js"
 
 /* Init */
 const app = express();
-const PORT = process.env.PORT || 5000;
-const DB_URL = process.env.DB_URL || "mongodb+srv://shaishav:mernstack@cluster0.8ctsf.mongodb.net/ProjectBuildR?retryWrites=true&w=majority";
-
 
 /* MiddleWare */
 app.use(express.urlencoded({ extended: true }));
