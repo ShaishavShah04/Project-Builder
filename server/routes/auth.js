@@ -9,7 +9,7 @@ authRouter.post("/login", post_login_handler);
 authRouter.post("/signup", post_signup_handler);
 
 authRouter.get("/verified", verify, (req, res) => {
-    res.send("We verified lmao! ");
+    res.json(req.user);
 })
 
 authRouter.post("/logout", verify, post_logout_handler);

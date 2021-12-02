@@ -6,6 +6,7 @@ import morgan from "morgan";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import { PORT, DB_URL } from "./secret_stuff.js"
+import projectRouter from "./routes/project.js";
 
 /* Init */
 const app = express();
@@ -16,8 +17,10 @@ app.use(express.json());
 app.use(cors())
 app.use(cookieParser())
 app.use(morgan("dev"))
+
 /* Routes */
-app.use("/api", authRouter);
+app.use("/api/auth", authRouter);
+app.use("/api/projects", projectRouter);
 
 
 /* Listening */
