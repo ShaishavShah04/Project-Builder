@@ -96,3 +96,7 @@ export const post_logout_handler = async (req, res) => {
 
     res.status(200).json(user);
 }
+
+export const post_isAuth_handler = (req, res) => {
+    res.status(200).json({ msg: "Logged in!"});
+}
