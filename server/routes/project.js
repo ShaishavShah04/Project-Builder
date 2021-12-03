@@ -1,41 +1,14 @@
 import { Router } from "express";
 import { verify } from "../controllers/authHelpers.js";
-import { Project } from "../models/projectModel.js";
+import { post_createProject_handler, get_allProjects_handler, get_certainProject_handler } from "../controllers/projectController.js";
 
 const projectRouter = Router();
 
-projectRouter.post("/create", verify, async (req, res) => {
+projectRouter.get("/all", get_allProjects_handler );
 
-    try {
+projectRouter.post("/create", verify, post_createProject_handler );
 
-        // Destructure out info
-        const { title, description, tech } = req.body;
-        const name = req.user.firstName + " " + req.user.lastName;
-
-        // Check Info
-        if (!title || !description || !name ) {
-            return res.status(400).json({ msg: "Not all fields are valid!" });
-        }
-
-        // Create Post
-        const newProject = new Project({
-            title,
-            createdBy: { 
-                _id: req.user._id,
-                name
-            },
-            description,
-            tech
-        });
-
-        const savedProject = await newProject.save();
-        res.status(201).json(savedProject);
-
-    } catch (error) {
-        res.status(500).json({ err: error.message });
-    } 
-
-});
+projectRouter.get("/:project_id", get_certainProject_handler );
 
 
 export default projectRouter;
