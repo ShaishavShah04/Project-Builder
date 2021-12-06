@@ -36,7 +36,7 @@ export const post_createProject_handler = async (req, res) => {
 export const get_allProjects_handler = async (req, res) => {
     try {
         const all_projects = await Project.find({}, {"title": 1, "tech": 1, "subtitle": 1, "createdBy.name": 1, "likes": 1});
-        res.json(all_projects)
+        res.json({all_projects})
     } catch (error) {
         res.status(500).json({ err: error.message });
     } 
