@@ -34,7 +34,6 @@
     "babel-jest": "^27.4.2",
     "jest": "^27.4.3",
     "mongodb-memory-server": "^8.0.4",
-    "morgan": "^1.10.0",
     "nodemon": "^2.0.15",
     "supertest": "^6.1.6"
   }

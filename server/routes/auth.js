@@ -8,7 +8,7 @@ authRouter.post("/login", post_login_handler);
 
 authRouter.post("/signup", post_signup_handler);
 
-authRouter.get("/isAuth", post_isAuth_handler);
+authRouter.get("/isAuth", verify, post_isAuth_handler);
 
 authRouter.post("/logout", verify, post_logout_handler);
 

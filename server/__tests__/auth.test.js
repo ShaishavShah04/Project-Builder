@@ -110,7 +110,7 @@ describe('POST /isAuth', () => {
     describe('given no tokens', () => {
         it('should return code 401 and msg', async () => {
             const { statusCode, body } = await supertest(app).get('/api/auth/isAuth')
-            expect(statusCode).toBe(200);
+            expect(statusCode).toBe(401);
             expect(body).toHaveProperty('msg');
         })
     })
