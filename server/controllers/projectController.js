@@ -1,4 +1,5 @@
 import { Project } from "../models/projectModel.js";
+import { Types } from "mongoose";
 
 export const post_createProject_handler = async (req, res) => {
 
@@ -45,17 +46,26 @@ export const get_allProjects_handler = async (req, res) => {
 export const get_certainProject_handler = async (req, res) => {
     try {
         const project_id = req.params.project_id;
+        let id = null;
         // Check if id was provided
         if (!project_id) {
             return res.status(400).json({ msg: "Not all fields are valid!" });
         }
+        // Checking if possible to convert to obj_id
+        try {
+            id = Types.ObjectId(project_id);
+        } catch (error) {
+            return res.status(400).json({ msg: "Not valid project id" });
+        }
+
         // Fetch project
-        const requestedProject = await Project.findById(project_id);
+        const requestedProject = await Project.findById(id);
         if (requestedProject) {
             res.json(requestedProject);
         } else {
             return res.status(400).json({ msg: "Not valid project id" });
         }
+        
     } catch (error) {
         res.status(500).json({ err: error.message });
     }

@@ -3,6 +3,8 @@ let tokens = {
     refresh_token: null,
 }
 
+export let project_id = null;
+
 let working_tokens = {
     access_token: "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWFkODFmZjk1ZTBjYWQ0Yzc3YjllYmUiLCJmaXJzdE5hbWUiOiJKb2huIiwibGFzdE5hbWUiOiJEb2UiLCJpYXQiOjE2Mzg3NjA5NTksImV4cCI6MTYzODc2MDk2OX0.L9Tj4N5BysNHfzrW35M0l8pjX58QGI86wZi2Ej2yhh4",
     refresh_token: "refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWFkODFmZjk1ZTBjYWQ0Yzc3YjllYmUiLCJmaXJzdE5hbWUiOiJKb2huIiwibGFzdE5hbWUiOiJEb2UiLCJpYXQiOjE2Mzg3NjA5NTksImV4cCI6MTY1NjA0MDk1OX0.FyJzEx7KMdpDwFK5PZ1BYvMxlg1wAbdwv3EZBj9Ak2U",
@@ -28,6 +30,8 @@ export const getaccesstoken = () => tokens.access_token;
 export const getrefreshtoken = () => tokens.refresh_token;
 export const getworkingaccesstoken = () => working_tokens.access_token;
 export const getworkingrefreshtoken = () => working_tokens.refresh_token;
+export const getprojectid = () => project_id;
+export const setprojectid = (id) => project_id = id;
 
 describe('Dummy Test!', () => {
     it('should literally do nothing!', async ()=>{
