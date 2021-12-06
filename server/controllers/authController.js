@@ -79,7 +79,7 @@ export const post_signup_handler = async (req, res) => {
 
         // -- Save and Response
         const savedUser = await newUser.save();
-        res.status(201).json(savedUser);
+        res.status(201).json({ user: savedUser});
 
     } catch (error) {
         res.status(500).json({err: error.message});
