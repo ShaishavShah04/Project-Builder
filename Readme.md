@@ -1,6 +1,6 @@
-# <b>Project BuildR </b>
+# <b>Project Builder </b>
 
-Note: So far, I have only created the backend of this platform.
+Note: So far, I have only created the backend of this platform. No front-end has been created yet as I'm currently learning the tool Figma.
 
 ## <b> What is this ? </b>
 
@@ -46,6 +46,6 @@ POST http://[api-domain]/api/auth/logout
     <li> Delete your own project post (AUTH)
 </ul>
 
-```
-I am working on creating these!
-```
+## All of these routes have been tested using Jest and Supertest!
+
+These tests can be found under the ```__tests__``` folder.
